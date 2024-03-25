@@ -1,0 +1,32 @@
+name: Test_Code_Workflow
+
+on:
+  push:
+    branches:
+      - test
+      
+  pull_request:
+    branches:
+      -test
+      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11.5' # The python version to set up
+
+      - name: Install dependancies
+        run:  pip install pytest tensorflow==2.12.0 keras==2.12.0 pandas numpy \
+              scikit-learn
+
+      - name: Test code
+        run: pytest test.py
+          
+        
