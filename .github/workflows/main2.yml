@@ -10,7 +10,7 @@ on:
       - test
   
 jobs:
-  testRun:
+  testCode:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,8 @@ jobs:
           python-version: '3.11.5' # The python version to set up
 
       - name: Install dependancies
-        run: pip install flake8
+        run: pip install pytest scikit-learn tensorflow==2.12.0 keras==2.12.0 \
+             pandas numpy 
 
-      - name: Run code quality check
-        run: echo "hello"
+      - name: Run Tests
+        run: pytest test.py
