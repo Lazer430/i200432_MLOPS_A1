@@ -1,15 +1,13 @@
 from flask import Flask, render_template, request
-# import joblib
 import numpy as np
 from PIL import Image
 import io
-import pickle
+from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
 
 # Load your pre-trained model
-with open('model.pkl', 'rb') as model_file:
-    model = pickle.load(model_file)
+model = load_model('model.h5')
 
 # Define the allowed file extensions for image uploads
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -38,11 +36,7 @@ def predict():
     
     # If the file has an allowed extension
     if file and allowed_file(file.filename):
-        # model = joblib.load('model.pkl')
-        with open('model.pkl', 'rb') as model_file:
-            model = pickle.load(model_file)
         image = Image.open(io.BytesIO(file.read()))
-        # image = plt.imread(image_path)
         image = np.array(image)
         image = image.reshape(-1, 28, 28, 1)
         prediction = model.predict(image)
