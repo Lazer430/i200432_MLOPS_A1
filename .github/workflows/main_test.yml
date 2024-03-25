@@ -3,11 +3,11 @@ name: Test_Code_Workflow
 on:
   push:
     branches:
-      -test # the branch to execute 
+      - test # the branch to execute 
   
   pull_request:
     branches:
-      -test
+      - test
   
 jobs:
   testRun:
@@ -23,7 +23,7 @@ jobs:
           python-version: '3.11.5' # The python version to set up
 
       - name: Install dependancies
-        run:  pip install flake8
+        run: pip install flake8
 
       - name: Run code quality check
-        run:  echo "hello"
+        run: echo "hello"
