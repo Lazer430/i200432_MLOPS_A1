@@ -2,5 +2,4 @@
 MLOPS Assignment 1
 
 ## Updated readme
-
 # 123
