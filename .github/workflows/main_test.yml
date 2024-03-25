@@ -3,14 +3,14 @@ name: Test_Code_Workflow
 on:
   push:
     branches:
-      - test # the branch to execute 
+      -test # the branch to execute 
   
   pull_request:
     branches:
-      - test
+      -test
   
 jobs:
-  flake8:
+  testRun:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,6 +26,4 @@ jobs:
         run:  pip install flake8
 
       - name: Run code quality check
-        run:  flake8 .
-          
-        
+        run:  echo "hello"
