@@ -1,5 +1,3 @@
-# i200432_MLOPS_A1
-MLOPS Assignment 1
-
-## Updated readme
-# 123
+## Members
+Ahsan Rasheed i200474
+Fasih Abdullah i200432
