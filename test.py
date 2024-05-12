@@ -43,4 +43,3 @@ def test_f1(test_data):
     y_pred = model.predict(x_test)
     y_pred = np.argmax(y_pred, axis=1)
     assert f1_score(y_test, y_pred, average='micro') > 0.5
-    
